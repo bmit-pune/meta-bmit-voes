@@ -1,0 +1,12 @@
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+
+SRC_URI_append = " \
+file://Readme \
+file://bmitinfo.patch \
+"
+
+do_unpack_extra(){
+	echo ${S}
+	sudo chmod 775 ${S}/git/
+	cp -pPR  board-mx6q_sabrelite.c ${S}/git/
+}
